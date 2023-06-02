@@ -1,0 +1,18 @@
+<div id="<%= dom_id picture %>">
+  <div class="card" style="width: 18rem;">
+    <% picture.images.each do |x| %>
+      <%= image_tag x, class: 'card-img-top' %>
+    <% end %>
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <%= image_tag picture.user.avatar, class: "rounded-circle wi-50 m-2" %>
+        <h5><%= picture.user %></h5>
+      </div>
+      <p class="card-text font-20"><%= picture.legend %></p>
+    </div>
+    <div class="d-flex justify-content-end mb-3 me-3">
+      <%= link_to "Ver más", show_and_new_comment_picture_path(picture), class:"btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>
+

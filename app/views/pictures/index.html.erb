@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <h1 class="mb-5 font-45 text-center">Mis fotografías</h1>
+    <%= link_to "Subir fotos", new_picture_path, class: "btn btn-outline-success mb-4" %>
+    <div id="pictures" class="row">
+      <% @pictures.reverse.each do |picture| %>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <%= render picture %>
+        </div>
+      <% end %>
+      </div>
+   </div>
+</div>

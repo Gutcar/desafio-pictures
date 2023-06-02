@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+        <%= link_to "KariPic", root_path, class: "navbar-brand text-white" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ">
+                <% if user_signed_in? %>
+                    <li class="nav-item">
+                        <a href="<%= edit_user_registration_path %>" class="nav-link text-white">Editar <%= current_user.name %></a>
+                    </li>
+                    <li class="nav-item">
+                        <%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Iniciar Sesión", new_user_session_path, class: "nav-link text-white" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Registrarse", new_user_registration_path, class: "nav-link text-white" %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</nav>

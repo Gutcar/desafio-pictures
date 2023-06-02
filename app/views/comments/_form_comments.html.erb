@@ -1,0 +1,30 @@
+<%= form_with(model: comment, url: picture_comments_path(@picture)) do |form| %>
+  <% if comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, "Escribe tu comentario", class: "form-label mb-2"%>
+    <%= form.text_field :description, required: true, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, value: current_user.id%>
+  </div>
+
+  <div>
+    <%= form.hidden_field :picture_id, value: @picture.id %>
+  </div>
+
+  <div>
+    <%= form.submit "Enviar", class: "btn btn-primary mt-3 mb-5" %>
+  </div>
+<% end %>

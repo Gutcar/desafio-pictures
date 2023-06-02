@@ -1,0 +1,9 @@
+<div id="<%= dom_id comment %>">
+  <div class="border-top" style="width: 100%">
+    <div class="d-flex align-items-center">
+      <%= image_tag comment.user.avatar, class: "rounded-circle wi-50 m-2" %>
+      <h5><%= comment.user %></h5>
+    </div>
+    <p class="margen-50"><%= comment.description %></p>     
+  </div>
+</div>

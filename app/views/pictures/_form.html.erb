@@ -1,0 +1,31 @@
+<%= form_with(model: picture) do |form| %>
+  <% if picture.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+        <% picture.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :images, "Imagenes", class: "form-label" %>
+    <%= form.file_field :images, multiple: true, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :legend, "Cuentanos lo que estabas haciendo", class: "form-label" %>
+    <%= form.text_area :legend, autofocus: true, required: true, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="mb-5">
+    <%= form.submit "Subir", class: "btn btn-primary" %>
+  </div>
+<% end %>
