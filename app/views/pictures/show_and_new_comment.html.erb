@@ -17,7 +17,13 @@
   <div class="col-lg-6 mb-5">
     <h5>Comentarios</h5>
 
-    <%= render 'comments/form_comments', comment: @comment %>
+    <% if user_signed_in? %>
+      <%= render 'form_comments', comment: @comment %>
+    <% else %>
+      <p>Debes estar 
+      <%= link_to "registrado", new_user_session_path %>
+      para poder comentar</p>
+    <% end %>
 
     <div id="comments">
       <% @comments.reverse.each do |comment| %>
