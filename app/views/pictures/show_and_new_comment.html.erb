@@ -18,7 +18,7 @@
     <h5>Comentarios</h5>
 
     <% if user_signed_in? %>
-      <%= render 'form_comments', comment: @comment %>
+      <%= render 'comments/form_comments', comment: @comment %>
     <% else %>
       <p>Debes estar 
       <%= link_to "registrado", new_user_session_path %>
